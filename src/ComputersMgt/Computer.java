@@ -127,17 +127,62 @@ public class Computer {
                 "]"
         );
     }
-//    private double evaluateCoefficient()
-//    {
-//        double microprocess_perfm,screen_perfm;
-//
-//        double memory_capacity=0.6*RAM+0.4*hardDisk;
-//        return 40*microprocess_perfm+30*screen_perfm+30*memory_capacity;
-//    }
-    public int compare(Computer p)
+    private double evaluateCoefficient()
     {
+        double microprocess_perfm,screen_perfm,brand_perform;
+        switch (this.getMicroprocess().getBrand())
+        {
+            case DRAGON :
+                brand_perform=50;
+                break;
+            case INTEL:
+                brand_perform=40;
+                break;
+            case AMD :
+                brand_perform=30;
+                break;
+            case CELERON:
+                brand_perform=20;
+                break;
+            default :
+                brand_perform=10;
+        }
 
-        //compare this and the printer "p"
+        microprocess_perfm=0.6*microprocess.getSpeed()*microprocess.getNbrCore()+0.4*brand_perform;
+        double type_perfm;
+        switch (this.screen.getType())
+        {
+            case SUPERAMOLED :
+                type_perfm=60;
+                break;
+            case AMOLED :
+                type_perfm=50;
+                break;
+            case RETINA:
+                type_perfm=40;
+                break;
+            case LED :
+                type_perfm=30;
+                break;
+            case LCD:
+                type_perfm=20;
+                break;
+                default:
+                    type_perfm=10;
+        }
+        screen_perfm=0.3*screen.getSize()+0.7*type_perfm;
+        double memory_capacity=0.6*RAM+0.4*hardDisk;
+        return 40*microprocess_perfm+30*screen_perfm+30*memory_capacity;
+    }
+    public int compare(Computer c)
+    {
+        //compare this and the computer "c"
+        double coeff1=this.evaluateCoefficient();
+        double coeff2=c.evaluateCoefficient();
+        if(coeff1>coeff2)
+            return 1;
+        if(coeff1<coeff2)
+            return -1;
         return 0;
     }
 }
