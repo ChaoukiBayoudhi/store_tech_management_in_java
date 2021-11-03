@@ -6,6 +6,7 @@ package ComputersMgt;
 //or
 import Details.*;
 import Enumerations.ProductState;
+import PrintersMgt.Printer;
 
 public class Computer {
     private long id;
@@ -114,5 +115,29 @@ public class Computer {
 
     public void setState(ProductState state) {
         this.state = state;
+    }
+    public void show()
+    {
+        System.out.println("Printer[ "+
+                "id = "+this.id+
+                "provider = "+this.provider.getName()+
+                "price = "+this.price+
+                "state = "+this.state+
+                //...
+                "]"
+        );
+    }
+//    private double evaluateCoefficient()
+//    {
+//        double microprocess_perfm,screen_perfm;
+//
+//        double memory_capacity=0.6*RAM+0.4*hardDisk;
+//        return 40*microprocess_perfm+30*screen_perfm+30*memory_capacity;
+//    }
+    public int compare(Computer p)
+    {
+
+        //compare this and the printer "p"
+        return 0;
     }
 }

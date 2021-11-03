@@ -4,6 +4,7 @@ public enum ScreenType {
     LCD,
     LED,
     AMOLED,
-    CURVED,
+    SUPERAMOLED,
+    RETINA,
     OTHER
 }
