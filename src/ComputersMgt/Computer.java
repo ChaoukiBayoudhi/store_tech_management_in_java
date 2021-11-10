@@ -9,7 +9,7 @@ import Enumerations.ProductState;
 import PrintersMgt.Printer;
 
 public class Computer {
-    private long id;
+    private long id=1;
     //composition
     private Microprocessor microprocess;
     private Screen screen;
@@ -22,7 +22,7 @@ public class Computer {
     //constructors
     public Computer()
     {
-        this.id=1;
+        this.id++;
         this.provider=new Provider();
         this.microprocess=new Microprocessor();
         this.screen=new Screen();

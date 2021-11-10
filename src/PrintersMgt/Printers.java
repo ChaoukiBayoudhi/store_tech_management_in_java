@@ -41,6 +41,47 @@ public class Printers {
     public void sort() //ordre croissant de performance
     {
 
+        for (int i = 0; i <= this.nbrPrinters-2; i++) {
+            for (int j=i+1;j<= this.nbrPrinters-1;j++)
+            {
+                if(tab[j].compare(tab[i])>0)
+                {
+                  Printer  temp = tab[i];
+                  tab[i]=tab[j];
+                  tab[j]=temp;
+                }
+            }
+        }
 
+    }
+    public Printers getPrintersByPriceBetween(double priceMin,double priceMax)
+    {
+        Printers res=new Printers();
+        //int i=0;
+        for (Printer x:this.tab ) {
+            if(x.getPrice()>priceMin&&x.getPrice()<priceMax)
+                res.tab[res.nbrPrinters++] = x;
+                //res.tab[i++] = x;
+
+        }
+        //res.nbrPrinters=i;
+        return res;
+    }
+    public Printers getPrintersByPrice(String choice, double val)
+    {
+        Printers res=null;
+        switch(choice)
+        {
+            case "=":
+                res=getPrintersByPriceBetween(val,val);
+                break;
+        case "<":
+                res=getPrintersByPriceBetween(0,val);
+                break;
+        case ">":
+                res=getPrintersByPriceBetween(val,Double.MAX_VALUE);
+                break;
+        }
+        return res;
     }
 }
