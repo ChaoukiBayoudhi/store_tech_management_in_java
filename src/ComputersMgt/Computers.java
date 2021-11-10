@@ -16,5 +16,16 @@ public class Computers {
         this.tab = tab;
         this.nbrComputers = nbrComputers;
     }
+    public void list() //affiche le stock des ordinateurs
+    {
+        System.out.println("Liste des Ordinateurs :");
+//        for (int i = 0; i < this.nbrComputers; i++) {
+//            this.tab[i].show();
+//        }
+        //ou bien
+        for (Computer x:this.tab ) {
+            x.show();
+        }
+    }
 
 }
